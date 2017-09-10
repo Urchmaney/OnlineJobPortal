@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "Search";
+}
+<div style="margin-top:100px">
+    <h2>Search</h2>
+    @using (Html.BeginForm())
+    {
+        <p>
+            @Html.Hidden("SearchBy", new { ViewBag.SearchBy })
+            Input @ViewBag.Name : @Html.TextBox("searchWord")
+
+
+            </p>
+        <input type="submit" value="Submit" />
+    }
+
+    @*@using (Html.BeginForm())
+    {
+        <p>
+            Select @ViewBag.Name  : @Html.DropDownList("SearchBy", new[] {
+                                           new SelectListItem() {Text="Programmer",Value="0"},
+                                           new SelectListItem() {Text="Software Development",Value="1"},
+                                           new SelectListItem() {Text="IT Maintanace",Value="2"},
+                                           new SelectListItem() {Text="Business Administrator",Value="3"}
+                                                                        }, "search By",
+    new { @class = "form-control" })
+        </p>
+    }*@
+</div>
+

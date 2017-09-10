@@ -1,0 +1,22 @@
+﻿
+
+
+@{
+    ViewBag.Title = "Search For Job Based on";
+}
+
+<div style="margin-top:120px">
+    @using (Html.BeginForm())
+    {
+        <p>
+            Search for Job By  : @Html.DropDownList("SearchBy", new[] {
+                                          new SelectListItem() {Text="City",Value="0"},
+                                          new SelectListItem() {Text="Position",Value="1"},
+
+                                          }, "search By",
+                   new { @class = "form-control" })
+        </p>
+
+        <input type="submit" value="Submit" />
+    }
+</div>

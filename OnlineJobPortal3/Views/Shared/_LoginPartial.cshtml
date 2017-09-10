@@ -1,0 +1,137 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    if (User.IsInRole("JobSeeker"))
+    {
+        using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+        {
+            @Html.AntiForgeryToken()
+
+            @*<ul class="nav navbar-nav navbar-left">
+                    <li>
+                        @Html.ActionLink("Post Job ", "PostJob", "Companies", routeValues: null, htmlAttributes: new { title = "Manage" })
+                    </li>
+                    <li>
+                        @Html.ActionLink("News Feed ", "NewsFeed", "Companies", routeValues: null, htmlAttributes: new { title = "Manage" })
+                    </li>
+                    <li>
+                        @Html.ActionLink("Message Admin ", "MsgAdmin", "Companies", routeValues: null, htmlAttributes: new { title = "Manage" })
+                    </li>
+                    <li>
+                        @Html.ActionLink("Applicants", "Applicants", "Companies", routeValues: null, htmlAttributes: new { title = "Manage" })
+                    </li>
+                </ul>*@
+
+            <ul class="nav navbar-nav navbar-left">
+                @*<li>
+                     @Html.ActionLink("Search Job", "SearchJob", "JobSeekers", routeValues: null, htmlAttributes: new { title = "Search Job" })
+            </li>*@
+                <li>
+                    @Html.ActionLink("View Companies", "ViewCompanies", "JobSeekers", routeValues: null, htmlAttributes: new { title = "View Companies" })
+                </li>
+                <li>
+                    @Html.ActionLink("View Messages", "ViewMessage", "JobSeekers", routeValues: null, htmlAttributes: new { title = "View Messages" })
+                </li>
+                @*<li>
+                    @Html.ActionLink("Cancel Registration", "SearchJob", "JobSeekers", routeValues: null, htmlAttributes: new { title = "Cancel Registration" })
+                </li>
+                <li>
+                    @Html.ActionLink("News Feed ", "NewsFeed", "JobSeekers", routeValues: null, htmlAttributes: new { title = "News Feed" })
+                </li>
+                <li>
+                    @Html.ActionLink("Message Admin", "MsgAdmin", "JobSeekers", routeValues: null, htmlAttributes: new { title = "Message Admin" })
+                </li>
+                <li>
+                    @Html.ActionLink("Edit Details", "EditDetail", "JobSeekers", routeValues: null, htmlAttributes: new { title = "Edit Details" })
+                </li>*@
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+                </li>
+                <li><a href="javascript:document.getElementById('logoutForm').submit()">Log Out</a></li>
+            </ul>
+        }
+    }
+
+
+    else if (User.IsInRole("Company"))
+    {
+        using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+        {
+        @Html.AntiForgeryToken()
+
+        <ul class="nav navbar-nav navbar-left">
+                <li>
+                    @Html.ActionLink("Upload Job Vacancy ", "PostJob", "Companies", routeValues: null, htmlAttributes: new { title = "Post Job" })
+                </li>
+            <li>
+                @Html.ActionLink("Upload Company Info ", "ListJobPost", "Companies", routeValues: null, htmlAttributes: new { title = "Message Job Seekers" })
+            </li>
+                @*<li>
+         @Html.ActionLink("News Feed ", "NewsFeed", "Companies", routeValues: null, htmlAttributes: new { title = "News Feed" })
+                 </li>
+        <li>
+            @Html.ActionLink("Message Admin ", "MsgAdmin", "Companies", routeValues: null, htmlAttributes: new { title = "Message Admin" })
+        </li>*@
+                <li>
+                    @Html.ActionLink("Applicants", "JobPostListForApplicant", "Companies", routeValues: null, htmlAttributes: new { title = "Applicants" })
+                </li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+                </li>
+                <li><a href="javascript:document.getElementById('logoutForm').submit()">Log Out</a></li>
+            </ul>
+
+        }
+    }
+
+    else if (User.IsInRole("Admin"))
+    {
+        using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+        {
+        @Html.AntiForgeryToken()
+
+        <ul class="nav navbar-nav navbar-left">
+            <li>
+                @Html.ActionLink("Post New Updates", "PostNewsUpdate", "Admin", routeValues: null, htmlAttributes: new { title = "Post Job" })
+            </li>
+            <li>
+                @Html.ActionLink("Send Message", "SendMessage", "Admin", routeValues: null, htmlAttributes: new { title = "Message Job Seekers" })
+            </li>
+            <li>
+                @Html.ActionLink("View Messages ", "ViewMessages", "Admin", routeValues: null, htmlAttributes: new { title = "News Feed" })
+            </li>
+            <li>
+                @Html.ActionLink("Cancel User Registration", "CancelRegistrationList", "Admin", routeValues: null, htmlAttributes: new { title = "Post Job" })
+            </li>
+            <li>
+                @Html.ActionLink("View Job Seekers", "ListOfJobSeeker", "Admin", routeValues: null, htmlAttributes: new { title = "Message Admin" })
+            </li>
+            <li>
+                @Html.ActionLink("View Companies", "ListOfCompanies", "Admin", routeValues: null, htmlAttributes: new { title = "Applicants" })
+            </li>
+        </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+                </li>
+                <li><a href="javascript:document.getElementById('logoutForm').submit()">Log Out</a></li>
+            </ul>
+        }
+    }
+
+}
+
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li>@Html.ActionLink("Register", "RegistrationType", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+    </ul>
+}

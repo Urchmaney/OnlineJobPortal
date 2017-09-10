@@ -1,0 +1,61 @@
+﻿
+@model IEnumerable<OnlineJobPortal3.Models.ApplicationUser>
+
+@{
+    ViewBag.Title = "Registered User List";
+}
+
+<div style="margin-top:120px">
+    <h2>Registered User List</h2>
+
+  
+    <table class="table">
+        <tr>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+           
+            <th>
+                @Html.Label("Type Of User")
+            </th>
+
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            if (item.Email == "Admin@gmail.com")
+            {
+                return;
+            }
+            <tr>
+               
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+
+             
+                @if (item is OnlineJobPortal3.Models.Company)
+                {
+                    <td>
+                       Company
+                    </td>
+                }
+                else
+                {
+                    <td>
+                        Job Seeker
+                    </td>
+                }
+
+
+                <td>
+                    @Html.ActionLink("Cancel Registration", "CancelRegistration", new { id = item.Id }) |
+                   
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

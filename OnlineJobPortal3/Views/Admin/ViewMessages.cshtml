@@ -1,0 +1,42 @@
+﻿@model IEnumerable<OnlineJobPortal3.Models.MessageToAdmin>
+
+@{
+    ViewBag.Title = "ViewMessages";
+}
+
+<div style="margin-top:120px">
+    <h2>Messages</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Sender.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.msg)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sender.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.msg)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.MessageID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.MessageID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.MessageID })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

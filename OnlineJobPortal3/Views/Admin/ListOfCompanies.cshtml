@@ -1,0 +1,94 @@
+﻿@model IEnumerable<OnlineJobPortal3.Models.Company>
+
+@{
+    ViewBag.Title = "ListOfCompanies";
+}
+
+<div style="margin-top:120px">
+    <h2>List Of Companies</h2>
+
+
+    <table class="table">
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CompanyName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HeadOfficeCity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HeadOfficeContactNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NoOfBranch)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CompanyMail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CompanyType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CompanyWebsite)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneNumber)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CompanyName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HeadOfficeCity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HeadOfficeContactNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NoOfBranch)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CompanyMail)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CompanyType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CompanyWebsite)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

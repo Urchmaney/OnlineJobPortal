@@ -1,0 +1,59 @@
+﻿@model IEnumerable<OnlineJobPortal3.Models.JobPost>
+
+@{
+    ViewBag.Title = "SearchResult";
+}
+<div style="margin-top:120px">
+    <h2>Result from search</h2>
+
+  
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.JobName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.JobDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Location)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WorkExperience)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MinimumSalary)
+            </th>
+
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.JobName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.JobDescription)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Location)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WorkExperience)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MinimumSalary)
+                </td>
+
+                <td>
+                    @Html.ActionLink("Apply For Job", "ApplyForJob", new { id = item.JobPostID })
+
+                </td>
+            </tr>
+        }
+
+    </table>
+
+</div>

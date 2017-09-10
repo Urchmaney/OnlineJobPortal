@@ -1,0 +1,74 @@
+﻿@model IEnumerable<OnlineJobPortal3.Models.Company>
+
+@{
+    ViewBag.Title = "ViewCompanies";
+}
+<div style="margin-top:120px">
+    <h2>View Companies</h2>
+
+  
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CompanyName)
+            </th>
+
+
+
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+
+
+            <th>
+                @Html.DisplayNameFor(model => model.HeadOfficeCity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HeadOfficeContactNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NoOfBranch)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.CompanyWebsite)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CompanyName)
+                </td>
+
+
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.HeadOfficeCity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HeadOfficeContactNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NoOfBranch)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.CompanyWebsite)
+                </td>
+
+                <td>
+                    @Html.ActionLink("Search Job Vacancy","CompanyJobList","JobSeekers",new { id=item.Id},null)
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

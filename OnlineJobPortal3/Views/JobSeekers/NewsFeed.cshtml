@@ -1,0 +1,51 @@
+﻿@model IEnumerable<OnlineJobPortal3.Models.NewsFeed>
+
+@{
+    ViewBag.Title = "NewsFeed";
+}
+
+<h2>NewsFeed</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NewsTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.News)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateOfPublication)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NewsToWhom)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NewsTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.News)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateOfPublication)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NewsToWhom)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.NewsFeedID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.NewsFeedID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.NewsFeedID })
+        </td>
+    </tr>
+}
+
+</table>

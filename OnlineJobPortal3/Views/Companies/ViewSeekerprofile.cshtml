@@ -1,0 +1,74 @@
+﻿@model OnlineJobPortal3.Models.JobApplication
+
+@{
+    ViewBag.Title = "ViewSeekerprofile";
+}
+
+<h2>ViewSeekerprofile</h2>
+
+<div>
+    <h4>JobApplication</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.JobPost.JobName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JobPost.JobName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JobSeeker.Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JobSeeker.Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Qualification)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Qualification)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CourseStudied)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CourseStudied)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.YearOfGraduation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.YearOfGraduation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Experience)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Experience)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Designation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Designation)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Message Seeker", "MessageSeeker", new { id = Model.JobSeekerId }) |
+    
+</p>
